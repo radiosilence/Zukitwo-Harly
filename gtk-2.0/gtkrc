@@ -256,7 +256,9 @@ style "murrine-menubar" = "murrine-dark" {
 style "murrine-menubar-menuitem" = "murrine-menu" {
 	xthickness	= 6
 	bg[PRELIGHT]    = @selected_bg_color
-    bg[SELECTED]    = @selected_bg_color
+    bg[SELECTED]    = @bg_color
+    fg[SELECTED]    = @fg_color
+    fg[PRELIGHT]    = @fg_color
 
 	engine "murrine" {
 		contrast = .0 

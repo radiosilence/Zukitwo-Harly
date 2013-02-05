@@ -79,6 +79,7 @@ GtkWindow {
 *:insensitive {
 	color: shade (@bg_color, 0.6);
 	text-shadow: 0 1px alpha (shade (@bg_color, 1.25), 0.5);
+	text-shadow: none;
 }
 
 *:active {
@@ -957,32 +958,31 @@ GtkMenuToolButton.menu,
 .primary-toolbar .button .menu,
 .menu {
 	background-image: none;
-	background-color: @base_color;
+	background-color: @bg_color_dark;
 	padding: 0;
 	border-width: 1px;
 	border-style: solid;
-	border-color: shade (@bg_color, 0.8);
+	border-color: shade (@bg_color_dark, 0.8);
 	border-radius: 0;
-	color: @fg_color;
+	color: @text_color_dark;
 	box-shadow: none;
 }
 
 .toolbar .menu,
 GtkComboBox .menu {
 	background-image: none;
-	background-color: @base_color;
+	background-color: @menu_color;
 	border-style: solid;
 	padding: 0;
 
-	color: @fg_color;
-
+	color: @fg_color_dark;
 	box-shadow: none;
 }
+.toolbar .menu:insensitive,
+GtkComboBox .menu:insensitive {
+	color: red;
 
-.menu:selected {
-	background-color: @selected_bg_color;
 }
-
 .menu.button:hover,
 .menu.button:active,
 .menu.button:active:insensitive,
@@ -1001,16 +1001,14 @@ GtkComboBox .menu {
 .menubar {
 	-GtkWidget-window-dragging: true;
 
-	background-image: -gtk-gradient (linear,left top,left bottom,
-		from (@toolbar_gradient_base),
-		to (@toolbar_gradient_final));
+	background-color: @menu_color;
 	border-width: 0 0 1px 0;
 	border-style: solid;
-	border-color: alpha (@base_color, 0.2);
+	border-color: alpha (@menu_color, 0.2);
 
-	color: @fg_color;
-	text-shadow: alpha (shade (@button_bg_color, 1.25), 0.4);
-	box-shadow: inset 0px -1px @toolbar_border;
+	color: @text_color_dark;
+	text-shadow: none;
+	box-shadow: inset 0px -1px @menu_color;
 }
 
 /***************
@@ -1018,7 +1016,7 @@ GtkComboBox .menu {
  ***************/
 .menubar.menuitem,
 .menubar .menuitem {
-	text-shadow: 0 1px alpha (shade (@button_bg_color, 1.25), 0.4);
+	/*text-shadow: 0 1px alpha (shade (@button_bg_color, 1.25), 0.4);*/
 }
 
 .menubar.menuitem:hover,
@@ -1575,15 +1573,15 @@ GtkScrolledWindow.frame {
 .menuitem.separator {
 	-GtkMenuItem-horizontal-padding: 0;
 	-GtkWidget-separator-height: 1;
+	border-color: @bg_color_dark;
 
-	border-color: shade (@bg_color, 0.96);
 }
 
 Genericmenuitem .menuitem.separator,
 DbusmenuGtkMenu .menuitem.separator,
 .menubar .menuitem.separator,
 .primary-toolbar .menuitem.separator {
-	border-color: shade (@base_color, 0.94);
+	border-color: @bg_color_dark;
 }
 
 /***********
