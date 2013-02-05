@@ -1001,14 +1001,16 @@ GtkComboBox .menu:insensitive {
 .menubar {
 	-GtkWidget-window-dragging: true;
 
-	background-color: @menu_color;
+	background-image: -gtk-gradient (linear,left top,left bottom,  	
+		from (@toolbar_gradient_base),
+		to (@toolbar_gradient_final));
 	border-width: 0 0 1px 0;
 	border-style: solid;
-	border-color: alpha (@menu_color, 0.2);
+	border-color: alpha (@base_color, 0.2);
 
-	color: @text_color_dark;
+	color: @fg_color;
 	text-shadow: none;
-	box-shadow: inset 0px -1px @menu_color;
+	box-shadow: inset 0px -1px @toolbar_border;
 }
 
 /***************
@@ -1016,7 +1018,7 @@ GtkComboBox .menu:insensitive {
  ***************/
 .menubar.menuitem,
 .menubar .menuitem {
-	/*text-shadow: 0 1px alpha (shade (@button_bg_color, 1.25), 0.4);*/
+	text-shadow: none;
 }
 
 .menubar.menuitem:hover,
